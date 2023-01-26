@@ -10,25 +10,23 @@ using ProjetoWebProver.Models;
 
 namespace ProjetoWebProver.Controllers
 {
-    public class PersonagensController : Controller
+    public class ArmasController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PersonagensController(ApplicationDbContext context)
+        public ArmasController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Personagens
+        // GET: Armas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Personagems.Include(x => x.Armaduras).ToListAsync());
-            
+            var applicationDbContext = _context.Armas.Include(a => a.Personagem);
+            return View(await applicationDbContext.ToListAsync());
         }
 
-      
-
-        // GET: Personagens/Details/5
+        // GET: Armas/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -36,40 +34,43 @@ namespace ProjetoWebProver.Controllers
                 return NotFound();
             }
 
-            var personagem = await _context.Personagems
+            var arma = await _context.Armas
+                .Include(a => a.Personagem)
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (personagem == null)
+            if (arma == null)
             {
                 return NotFound();
             }
 
-            return View(personagem);
+            return View(arma);
         }
 
-        // GET: Personagens/Create
+        // GET: Armas/Create
         public IActionResult Create()
         {
+            ViewData["PersonagemId"] = new SelectList(_context.Personagems, "ID", "ItemIni");
             return View();
         }
 
-        // POST: Personagens/Create
+        // POST: Armas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Personagem personagem)
+        public async Task<IActionResult> Create([Bind("PersonagemId,Dano,Peso,Qual,ID")] Arma arma)
         {
             if (ModelState.IsValid)
             {
-               
-                _context.Add(personagem);
+                arma.ID = Guid.NewGuid();
+                _context.Add(arma);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(personagem);
+            ViewData["PersonagemId"] = new SelectList(_context.Personagems, "ID", "ItemIni", arma.PersonagemId);
+            return View(arma);
         }
 
-        // GET: Personagens/Edit/5
+        // GET: Armas/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -77,22 +78,23 @@ namespace ProjetoWebProver.Controllers
                 return NotFound();
             }
 
-            var personagem = await _context.Personagems.FindAsync(id);
-            if (personagem == null)
+            var arma = await _context.Armas.FindAsync(id);
+            if (arma == null)
             {
                 return NotFound();
             }
-            return View(personagem);
+            ViewData["PersonagemId"] = new SelectList(_context.Personagems, "ID", "ItemIni", arma.PersonagemId);
+            return View(arma);
         }
 
-        // POST: Personagens/Edit/5
+        // POST: Armas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id,Personagem personagem)
+        public async Task<IActionResult> Edit(Guid id, [Bind("PersonagemId,Dano,Peso,Qual,ID")] Arma arma)
         {
-            if (id != personagem.ID)
+            if (id != arma.ID)
             {
                 return NotFound();
             }
@@ -101,12 +103,12 @@ namespace ProjetoWebProver.Controllers
             {
                 try
                 {
-                    _context.Update(personagem);
+                    _context.Update(arma);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PersonagemExists(personagem.ID))
+                    if (!ArmaExists(arma.ID))
                     {
                         return NotFound();
                     }
@@ -117,10 +119,11 @@ namespace ProjetoWebProver.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(personagem);
+            ViewData["PersonagemId"] = new SelectList(_context.Personagems, "ID", "ItemIni", arma.PersonagemId);
+            return View(arma);
         }
 
-        // GET: Personagens/Delete/5
+        // GET: Armas/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -128,30 +131,31 @@ namespace ProjetoWebProver.Controllers
                 return NotFound();
             }
 
-            var personagem = await _context.Personagems
+            var arma = await _context.Armas
+                .Include(a => a.Personagem)
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (personagem == null)
+            if (arma == null)
             {
                 return NotFound();
             }
 
-            return View(personagem);
+            return View(arma);
         }
 
-        // POST: Personagens/Delete/5
+        // POST: Armas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var personagem = await _context.Personagems.FindAsync(id);
-            _context.Personagems.Remove(personagem);
+            var arma = await _context.Armas.FindAsync(id);
+            _context.Armas.Remove(arma);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PersonagemExists(Guid id)
+        private bool ArmaExists(Guid id)
         {
-            return _context.Personagems.Any(e => e.ID == id);
+            return _context.Armas.Any(e => e.ID == id);
         }
     }
 }

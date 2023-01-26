@@ -1,4 +1,4 @@
-﻿@model ProjetoWebProver.Models.Personagem
+﻿@model ProjetoWebProver.Models.Armadura
 
 @{
     ViewData["Title"] = "Details";
@@ -7,20 +7,20 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Personagem</h4>
+    <h4>Armadura</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
+            @Html.DisplayNameFor(model => model.Qual)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
+            @Html.DisplayFor(model => model.Qual)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Idade)
+            @Html.DisplayNameFor(model => model.DanoAbs)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Idade)
+            @Html.DisplayFor(model => model.DanoAbs)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Peso)
@@ -29,18 +29,11 @@
             @Html.DisplayFor(model => model.Peso)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Sexo)
+            @Html.DisplayNameFor(model => model.Personagem)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Sexo)
+            @Html.DisplayFor(model => model.Personagem.ItemIni)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ItemIni)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ItemIni)
-        </dd>
-
     </dl>
 </div>
 <div>

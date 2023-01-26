@@ -1,15 +1,82 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+
 }
 
+.fundo {
+    background-image: url('file:///C:\Users\Mateu\source\repos\ProjetoWebProver\ProjetoWebProver\wwwroot\Imagens\Fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+
+.text-center {
+    height: 100vh;
+    /*# é para id e . para classe*/
+    display: grid;
+    place-items: center;
+}
+
+.hidden{
+    display:none;
+}
+
+.display-4 {
+    width: 37ch;
+    animation: typing 3.5s steps(37, end), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 2em;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+
+
+
+
+
+#btnc-Criar {
+    background-origin:content-box;
+    color:red;
+    
+}
+#btnc-CriarArm {
+    background-origin: content-box;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .btn-primary {
@@ -24,10 +91,22 @@ a {
   border-color: #1861ac;
 }
 
+.gif {
+    text-align: center;
+    padding: 15px;
+    background-attachment:fixed;
+}
+
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-  font-size: 14px;
+* {
+    font-family: 'Pixel Operator';
+    background-image: url('~/Imagens/Fundo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
 @media (min-width: 768px) {
   html {

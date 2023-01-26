@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ProjetoWebProver</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -21,34 +22,75 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <audio id="beep" preload="auto"><source src="~/CURSOL_OK.wav.mp3" /></audio>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Personagens" asp-action="Index">Personagens</a>
+                            <audio id="beep" preload="auto"><source src="~/CURSOL_OK.wav.mp3" /></audio>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Armaduras" asp-action="Index">Armaduras</a>
+                            <audio id="beep" preload="auto"><source src="~/CURSOL_OK.wav.mp3" /></audio>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Armas" asp-action="Index">Armas</a>
+                            <audio id="beep" preload="auto"><source src="~/CURSOL_OK.wav.mp3" /></audio>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Atributos" asp-action="Index">Atributos</a>
+                            <audio id="beep" preload="auto"><source src="~/CURSOL_OK.wav.mp3" /></audio>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Poderes" asp-action="Index">Poderes</a>
+                            <audio id="beep" preload="auto"><source src="~/CURSOL_OK.wav.mp3" /></audio>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
     
+    @*<main class="container">
+        <div class="bloco-1" asp-area="" asp-controller="Armaduras" asp-action="Index">Armaduras</div>
+        <div class="bloco-2" asp-area="" asp-controller="Personagens" asp-action="Index">Personagens</div>
+        <div class="bloco-3" asp-area="" asp-controller="Armas" asp-action="Index">Armas </div>
+        <div class="bloco-4" asp-area="" asp-controller="Atributos" asp-action="Index">Atributos</div>
+        <div class="bloco-5" asp-area="" asp-controller="Poderes" asp-action="Index">Poderes</div>
+    </main>*@       
+
+    
+    @*<section>
+        <figure class="gif">
+            <img src="~/Imagens/GifPraFrontPage.gif" />
+        </figure>
+        
+    </section>*@
+
+    <div class="container">
+
+        @RenderBody()
+        
+
+    </div>
 
 
 
-   
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - ProjetoWebProver - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+
+<style>
+    body {
+        background-image: url('https://i.pinimg.com/originals/b1/6c/ab/b16cab79f718da02916e4ce17fb16961.gif');
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; /* Res */
+    }
+</style>
