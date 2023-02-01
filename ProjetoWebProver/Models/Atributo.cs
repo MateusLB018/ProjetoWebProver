@@ -7,7 +7,7 @@ namespace ProjetoWebProver.Models
 {
     public class Atributo:Entity
     {
-
+        
 
         public Guid PersonagemId { get; set; }
 

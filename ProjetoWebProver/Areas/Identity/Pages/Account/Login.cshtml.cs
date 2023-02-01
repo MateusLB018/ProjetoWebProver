@@ -42,16 +42,16 @@ namespace ProjetoWebProver.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage ="O campo email-é necessário")]
+            [EmailAddress (ErrorMessage ="o email não é válido")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "O campo senha é necessário")]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]
             public string Password { get; set; }
 
-            [Display(Name = "Esqueci minha senha?")]
+            [Display(Name = "Lembrar-se de mim...")]
             public bool RememberMe { get; set; }
         }
 
@@ -80,7 +80,7 @@ namespace ProjetoWebProver.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe,lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("Usuario Logado.");

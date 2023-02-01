@@ -1,12 +1,12 @@
 ﻿@model ProjetoWebProver.Models.Armadura
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Deletar";
 }
 
-<h1>Delete</h1>
+<h1>Deletar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que quer deletar essa armadura?</h3>
 <div>
     <h4>Armadura</h4>
     <hr />
@@ -39,7 +39,14 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="ID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
     </form>
 </div>
+
+<style>
+    .form-control {
+        background-color: rgba(12,12,12,0.1);
+        color: red;
+    }
+</style>

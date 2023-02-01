@@ -23,7 +23,11 @@ namespace ProjetoWebProver.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult InicioLog()
+        {
+            return View();
+        }
+        public IActionResult Sobre()
         {
             return View();
         }

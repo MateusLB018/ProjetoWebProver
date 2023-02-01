@@ -1,0 +1,138 @@
+﻿<html>
+<body class="centered-container">
+    <div >
+        <div class="actions">
+            <div class="actions-content">
+                <a class="btn personagem" onmouseover="teste()" id="personagem" asp-area="" asp-controller="Personagens" asp-action="Index"><span class="content"> <img class="imagemBut" src="~/Imagens/Pessoa.gif" /><span class="overlay2"><span class="text">Personagem</span></span></span></a>
+                <a class="btn atributos" id="atributos" asp-area="" asp-controller="Atributos" asp-action="Index"><span class="content"> <img class="imagemBut" style="width: 142px !important; padding-inline: 23px;" src="~/Imagens/Atributos.gif"  /><span class="overlay2"><span class="text">Atributos</span></span></span></a>
+                <a class="btn armadura" id="armadura" asp-area="" asp-controller="Armaduras" asp-action="Index"><span class="content"><img class="imagemBut" src="~/Imagens/armora.gif" /><span class="overlay2"><span class="text">Armadura</span></span></span></a>
+                <a class="btn arma" id="arma" asp-area="" asp-controller="Armas" asp-action="Index"><span class="content"> <img class="imagemBut" src="~/Imagens/sword.gif" /><span class="overlay2"><span class="text">Arma</span></span></span></a>
+                <a class="btn poder" id="poder" asp-area="" asp-controller="Poderes" asp-action="Index"><span class="content"> <img class="imagemBut" src="~/Imagens/Power.gif" /></span><span class="overlay2"><span class="text">Poder</span></span></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+<style>
+    .content {
+        position: relative;
+        width: 50%;
+    }
+
+    .imagemBut {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .overlay2 {
+        position: sticky;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: rgba(0, 0, 0, 0.74);
+    }
+
+    .container:hover .overlay2 {
+        opacity: 1;
+    }
+
+    .text {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+
+
+
+
+    .imagemBut {
+      
+        height: stretch;
+        width: stretch;
+        width: 135px;
+    }
+
+    .centered-container{
+        margin:0px;
+        padding:0px;
+    }
+
+    .actions-content {
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        padding-top: 25%;
+        
+        flex-wrap:wrap;
+        
+    }
+
+    .personagem {
+        background-color:blue;
+        border-color: blue);
+        color: black;
+        padding-inline: 5%;
+    }
+
+    .atributos {
+        background-color: greenyellow;
+        border-color: greenyellow;
+        color: black;
+        padding-inline: 5%;
+    }
+
+    .armadura {
+        background-color: purple;
+        border-color: purple;
+        color: black;
+        padding-inline: 5%;
+    }
+
+    .arma {
+        background-color: red;
+        border-color: red;
+        color: black;
+        padding-inline: 5%;
+    }
+
+    .poder {
+        background-color:yellow;
+        border-color: yellow;
+        color: black;
+        padding-inline: 5%;
+    }
+
+    .btn:hover {
+        transition: transform 1s;
+        transform: translateY(-10px);
+    }
+
+    .btn {
+        display: compact;
+        align-content: center;
+        align-items: center;
+        padding-inline-end: 1px;
+        padding-inline-start: 3px;
+    }
+
+    
+
+</style>

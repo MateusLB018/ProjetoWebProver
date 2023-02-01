@@ -45,12 +45,12 @@ namespace ProjetoWebProver.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required (ErrorMessage ="O campo email é necessário")]
+            [EmailAddress (ErrorMessage ="Email inválido")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
+            [Required (ErrorMessage ="O campo senha é necessário")]
             [StringLength(100, ErrorMessage = "A Senha deve ter ao menos {2} e no máximo {1} characteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]

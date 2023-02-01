@@ -81,7 +81,7 @@
             @foreach (var item2 in item.Atributos)
             {
                 <td>
-                    @item2
+                    @item2.Inteligencia
                 </td>
 
             }
@@ -102,3 +102,6 @@
 }
     </tbody>
 </table>
+<div>
+    <a asp-area="" asp-controller="Home" asp-action="InicioLog">Voltar</a>
+</div>

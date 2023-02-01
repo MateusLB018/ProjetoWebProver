@@ -8,46 +8,86 @@
 
 <h4>Personagem</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Idade" class="control-label"></label>
-                <input asp-for="Idade" class="form-control" />
-                <span asp-validation-for="Idade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Peso" class="control-label"></label>
-                <input asp-for="Peso" class="form-control" />
-                <span asp-validation-for="Peso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sexo" class="control-label"></label>
-                <input asp-for="Sexo" class="form-control" />
-                <span asp-validation-for="Sexo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ItemIni" class="control-label"></label>
-                <input asp-for="ItemIni" class="form-control" />
-                <span asp-validation-for="ItemIni" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Criar" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="d-flex justify-content-between">
+    <div class="w-100">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" id="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Idade" class="control-label"></label>
+                    <input asp-for="Idade" id="Idade" class="form-control" />
+                    <span asp-validation-for="Idade" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Peso" class="control-label"></label>
+                    <input asp-for="Peso" id="Peso" class="form-control" />
+                    <span asp-validation-for="Peso" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Sexo" class="control-label"></label>
+                    <input asp-for="Sexo" id="Sexo" class="form-control" />
+                    <span asp-validation-for="Sexo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ItemIni" class="control-label"></label>
+                    <input asp-for="ItemIni" id="ItemIni" class="form-control" />
+                    <span asp-validation-for="ItemIni" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Criar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
+
+    <div class="d-flex w-100 justify-content-center align-items-center">
+        <img class="w-100" src="~/Imagens/Pessoa.gif" />
+        <div class="ml-3">
+            <span class="display-4 d-block" id="nome"></span>
+            <span class="display-4 d-block" id="idade"></span>
+            <span class="display-4 d-block" id="peso"></span>
+            <span class="display-4 d-block" id="sexo"></span>
+            <span class="display-4 d-block" id="itemini"></span>
+        </div>
+    </div>
+
+
 </div>
 
 <div>
-    <a asp-action="Index">Voltar para Lista</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+<script>
+    debugger;
+    var Nome = document.getElementById("Nome").addEventListener('blur', function (e) {
+        var nome = document.getElementById("nome").textContent = e.target.value;
+    })
+    var Idade = document.getElementById("Idade").addEventListener('blur', function (e) {
+        var idade = document.getElementById("idade").textContent = e.target.value;
+    })
+    var PESO = document.getElementById("Peso").addEventListener('blur', function (e) {
+        var peso = document.getElementById("peso").textContent = e.target.value;
+    })
+    var Sexo = document.getElementById("Sexo").addEventListener('blur', function (e) {
+        var sexo = document.getElementById("sexo").textContent = e.target.value;
+    })
+    var ItemIni = document.getElementById("ItemIni").addEventListener('blur', function (e) {
+        var itemIni = document.getElementById("itemini").textContent = e.target.value;
+    })
+</script>
 }
+<style>
+    .form-control {
+        background-color: rgba(12,12,12,0.1);
+        color: red;
+    }
+</style>

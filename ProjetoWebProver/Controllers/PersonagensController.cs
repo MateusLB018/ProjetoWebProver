@@ -22,7 +22,7 @@ namespace ProjetoWebProver.Controllers
         // GET: Personagens
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Personagems.Include(x => x.Armaduras).ToListAsync());
+            return View(await _context.Personagems.Include(x => x.Armaduras).Include(x => x.Armas).Include(x => x.Atributos).Include(x => x.Poderes).ToListAsync());
             
         }
 
